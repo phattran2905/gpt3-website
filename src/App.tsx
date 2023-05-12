@@ -13,10 +13,7 @@ function App() {
 					accounts={accounts}
 					setAccounts={setAccounts}
 				/>
-				<MainMint
-					accounts={accounts}
-					setAccounts={setAccounts}
-				/>
+				<MainMint accounts={accounts} />
 			</div>
 			<div className="moving-background"></div>
 		</div>

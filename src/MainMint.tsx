@@ -7,10 +7,9 @@ const roboPunksNFTAddress = "0x8efBb606D0467f70DB21208736eb3a1126321658"
 
 type Props = {
 	accounts: never[]
-	setAccounts: (value: any) => void
 }
 
-function MainMint({ accounts, setAccounts }: Props) {
+function MainMint({ accounts }: Props) {
 	const [mintAmount, setMintAmount] = useState(1)
 	const isConnected = Boolean(accounts[0])
 
