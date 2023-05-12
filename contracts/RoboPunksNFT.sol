@@ -54,7 +54,7 @@ contract RoboPunksNFT is ERC721, Ownable {
         require(success, "withdraw failed");
     }
 
-    function min(uint256 quantity_) public payable {
+    function mint(uint256 quantity_) public payable {
       require(isPublicMintEnabled, 'minting not enabled');
       require(msg.value == quantity_ * mintPrice, 'wrong mint value');
       require(totalSupply + quantity_ <= maxSupply, 'sold out');
