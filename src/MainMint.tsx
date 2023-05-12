@@ -3,7 +3,7 @@ import { ethers, BigNumber } from "ethers"
 import roboPunksNFT from "./RoboPunksNFT.json"
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react"
 
-const roboPunksNFTAddress = "0xbC9695302321594E7DaeDc5a974F4562F71C588C"
+const roboPunksNFTAddress = "0x8efBb606D0467f70DB21208736eb3a1126321658"
 
 type Props = {
 	accounts: never[]
