@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { ethers, BigNumber } from "ethers"
 import roboPunksNFT from "./RoboPunksNFT.json"
-
-type Props = {
-	accounts: string
-	setAccounts: (value: any) => void
-}
+import { Box, Button, Flex, Input, Text } from "@chakra-ui/react"
 
 const roboPunksNFTAddress = "0xbC9695302321594E7DaeDc5a974F4562F71C588C"
+
+type Props = {
+	accounts: never[]
+	setAccounts: (value: any) => void
+}
 
 function MainMint({ accounts, setAccounts }: Props) {
 	const [mintAmount, setMintAmount] = useState(1)
@@ -37,32 +38,111 @@ function MainMint({ accounts, setAccounts }: Props) {
 	const handleIncrement = () => {
 		if (mintAmount >= 3) return
 
-		setMintAmount(mintAmount + 3)
+		setMintAmount(mintAmount + 1)
 	}
 
 	return (
-		<div>
-			<h1>RoboPunks</h1>
-			<p>
-				It's 2078. Can the RoboPunks NFT save humans from the destructive rampant NFT speculation?
-				Mint RoboPunks to find out.
-			</p>
-			{isConnected ? (
+		<Flex
+			justify={"center"}
+			align={"center"}
+			height={"100vh"}
+			paddingBottom={"150px"}
+		>
+			<Box
+				// width={"520px"}
+				// backgroundColor={"#333"}
+				backdropFilter={"blur(5px)"}
+			>
 				<div>
-					<div>
-						<button onClick={handleDecrement}>-</button>
-						<input
-							type="number"
-							value={mintAmount}
-						/>
-						<button onClick={handleIncrement}>+</button>
-					</div>
-					<button onClick={handleMint}>Mint Now</button>
+					<Text
+						fontSize={"48px"}
+						textShadow={"0 5px #000000"}
+					>
+						RoboPunks
+					</Text>
+					<Text
+						fontSize={"30px"}
+						letterSpacing={"-5.5%"}
+						fontFamily={"VT323"}
+						textShadow={"0 2px 2px #000000"}
+					>
+						It's 2078. Can the RoboPunks NFT save humans from the destructive rampant NFT
+						speculation? Mint RoboPunks to find out.
+					</Text>
 				</div>
-			) : (
-				<p>You must be connected to Mint.</p>
-			)}
-		</div>
+
+				{isConnected ? (
+					<div>
+						<Flex
+							align={"center"}
+							justify={"center"}
+						>
+							<Button
+								backgroundColor={"#D6517D"}
+								borderRadius={"5px"}
+								boxShadow={"0px 2px 2px 1px #0F0F0F"}
+								color={"white"}
+								cursor={"pointer"}
+								fontFamily={"inherit"}
+								padding="15px"
+								marginTop={"10px"}
+								onClick={handleDecrement}
+							>
+								-
+							</Button>
+							<Input
+								readOnly
+                type="number"
+								fontFamily={"inherit"}
+								width={"100px"}
+								height={"40px"}
+								textAlign={"center"}
+								paddingLeft={"19px"}
+								marginTop={"10px"}
+								value={mintAmount}
+							/>
+							<Button
+								backgroundColor={"#D6517D"}
+								borderRadius={"5px"}
+								boxShadow={"0px 2px 2px 1px #0F0F0F"}
+								color={"white"}
+								cursor={"pointer"}
+								fontFamily={"inherit"}
+								padding="15px"
+								marginTop={"10px"}
+								onClick={handleIncrement}
+							>
+								+
+							</Button>
+						</Flex>
+						<Button
+							backgroundColor={"#D6517D"}
+							borderRadius={"5px"}
+							boxShadow={"0px 2px 2px 1px #0F0F0F"}
+							color={"white"}
+							cursor={"pointer"}
+							fontFamily={"inherit"}
+							padding="15px"
+							marginTop={"10px"}
+							onClick={handleMint}
+						>
+							Mint Now
+						</Button>
+					</div>
+				) : (
+					<Text
+						marginTop={"70px"}
+						fontSize={"30px"}
+						letterSpacing={"-5.5%"}
+						fontFamily={"VT323"}
+						textShadow={"0 3px #000000"}
+						color="#D6517D"
+					>
+						You must be connected to Mint.
+					</Text>
+				)}
+			</Box>
+		</Flex>
 	)
 }
 export default MainMint
