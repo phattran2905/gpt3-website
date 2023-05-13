@@ -67,7 +67,7 @@ function Navbar({ accounts, setAccounts }: Props) {
 				<Spacer />
 				<Box margin={"0 15px"}>Mint</Box>
 				<Spacer />
-				<Box margin={"0 15px"}>Mint</Box>
+				<Box margin={"0 15px"}>Team</Box>
 				<Spacer />
 
 				{/* Connect */}
